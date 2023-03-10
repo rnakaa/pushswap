@@ -1,11 +1,12 @@
+# include"test.h"
 static int	check_over_long(int sign, unsigned long num, char c)
 {
 	if (sign == 1 && (LONG_MAX / 10 < num || (LONG_MAX / 10 == num && LONG_MAX
 				% 10 < c - '0')))
-		return (1);
+		exit(1);
 	if (sign == -1 && (LONG_MAX / 10 < num || (LONG_MAX / 10 == num && LONG_MAX
 				% 10 + 1 < c - '0')))
-		return (-1);
+		exit(1);
 	return (0);
 }
 

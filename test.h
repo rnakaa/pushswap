@@ -17,10 +17,15 @@
 # include<stdio.h>
 # include<ctype.h>
 # include<unistd.h>
+# include<limits.h>
 
 int		arg_check(int argc, const char *argv[]);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
+int	**arg_to_int(int argc, int argnum, char *argv[]);
+void     free_double_pointer(char **ingredient);
+int	ft_atoi(const char *s);
+int	ft_isdigit(int a);
 #endif

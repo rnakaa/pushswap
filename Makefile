@@ -17,6 +17,9 @@ SRCS    = 	ft_strdup.c\
 			ft_split.c\
 			ft_strlen.c\
 			ft_substr.c\
+			arg_to_int.c\
+			ft_atoi.c\
+			ft_isdigit.c\
 			test.c
 OBJS    = $(SRCS:.c=.o)
 

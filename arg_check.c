@@ -23,11 +23,10 @@ static int	arg_chek_char(char *argv[])
 	{
 		while (argv[i][j])
 		{
-			printf("%c\n", argv[i][j]);
-			if (!isdigit(argv[i][j]) \
+			if (!ft_isdigit(argv[i][j]) \
 			&& !((argv[i][0] == '-' \
 			|| argv[i][0] == '+') && !(j > 0 \
-			&& !isdigit(argv[i][j])) && ft_strlen(argv[i]) > 1))
+			&& !ft_isdigit(argv[i][j])) && ft_strlen(argv[i]) > 1))
 			{
 				return (1);
 			}
@@ -47,18 +46,19 @@ static char	**arg_split(const char *argv[], int *argnum)
 
 	i = 0;
 	ingredient = ft_split(argv[1], ' ');
-	while(!ingredient[i])
+	while(ingredient[i])
 		i++;
+	printf("%d",i);
 	*argnum = i;
 	return (ingredient);
 }
 
-static void	free_double_pointer(char **ingredient)
+void	free_double_pointer(char **ingredient)
 {
 	int	i;
 
 	i = 0;
-	while (!ingredient[i])
+	while (ingredient[i])
 	{
 		free(ingredient[i]);
 		i++;
@@ -67,39 +67,11 @@ static void	free_double_pointer(char **ingredient)
 	free(ingredient);
 }
 
-static int	**arg_to_int(int argc, int argnum, char *argv[])
-{
-	int	i;
-	int	**rep;
-
-	i++;
-	rep = malloc(sizeof(int *) * (argnum + 1));
-	if(!rep)
-	{
-		if(argc == 2)
-			free_double_pointer(argv);
-		exit(1);
-	}
-	rep[argnum] = NULL;
-	while(!argv[i])
-	{
-		rep[i] = malloc(sizeof(int) * 2);
-		if(!rep[i])
-		{
-			while(i)
-				free(rep[i--]);
-			if(argc == 2)
-				free_double_pointer(argv);
-			exit(1);
-		}
-		i++;
-	}
-}
-
 int	arg_check(int argc, const char *argv[])
 {
 	char	**ingredient;
 	int		argnum;
+	int	**repo;
 
 	argnum = argc - 1;
 	if (argc >= 3)
@@ -113,6 +85,11 @@ int	arg_check(int argc, const char *argv[])
 		write(0, "error\n", 7);
 		return (1);
 	}
-	ingredient = arg_to_int(argc, argnum, ingredient);
+	//***********************************************
+	repo = arg_to_int(argc, argnum, ingredient);
+	repo++;
+	//***********************************************
+	if(argc == 2)
+		free_double_pointer(ingredient);
 	return (0);
 }
