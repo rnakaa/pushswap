@@ -71,7 +71,6 @@ int	arg_check(int argc, const char *argv[])
 {
 	char	**ingredient;
 	int		argnum;
-	int	**repo;
 
 	argnum = argc - 1;
 	if (argc >= 3)
@@ -86,8 +85,7 @@ int	arg_check(int argc, const char *argv[])
 		return (1);
 	}
 	//***********************************************
-	repo = arg_to_int(argc, argnum, ingredient);
-	repo++;
+	free_doublepointerint(arg_to_int(argc, argnum, ingredient));
 	//***********************************************
 	if(argc == 2)
 		free_double_pointer(ingredient);

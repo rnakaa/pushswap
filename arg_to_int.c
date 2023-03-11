@@ -24,8 +24,7 @@ static int	argfree(int i, int *rep[], int argc, char *argv[], int argnum)
 }
 
 
-//-------------------------------------------------------------------------------
-void	free_double_pointerint(int **ingredient)
+void	free_doublepointerint(int **ingredient)
 {
 	int	i;
 
@@ -38,7 +37,30 @@ void	free_double_pointerint(int **ingredient)
 	free(ingredient[i]);
 	free(ingredient);
 }
-//-------------------------------------------------------------------------------
+
+static void	num_dup_check(int **indp, int argnum)
+{
+	int	i;
+	int	j;
+
+	i = argnum - 1;
+	while(indp[i])
+	{
+		j = 0;
+		while(j < i)
+		{
+			if(indp[i][0] == indp[j][0])
+			{
+				free_doublepointerint(indp);
+				write(0, "okatiiyyo\n", 10);
+				exit(1);
+			}
+			j++;	
+		}
+		i--;
+	}
+}
+
 int	**arg_to_int(int argc, int argnum, char *argv[])
 {
 	int	i;
@@ -62,6 +84,7 @@ int	**arg_to_int(int argc, int argnum, char *argv[])
 		rep[i][1] = '\0';
 		i++;
 	}
+	num_dup_check(rep, argnum);
 	//*****************************************************
 	//int k = 0;
 	//while(rep[k])
@@ -72,7 +95,7 @@ int	**arg_to_int(int argc, int argnum, char *argv[])
 	//	printf("dasfdfa\n");
 	//	k++;
 	//}
-	free_double_pointerint(rep);
+	//free_double_pointerint(rep);
 	//*****************************************************
 	return rep;
 }

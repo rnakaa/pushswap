@@ -28,4 +28,5 @@ int	**arg_to_int(int argc, int argnum, char *argv[]);
 void     free_double_pointer(char **ingredient);
 int	ft_atoi(const char *s);
 int	ft_isdigit(int a);
+void	free_doublepointerint(int **a);
 #endif
