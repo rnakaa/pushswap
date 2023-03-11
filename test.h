@@ -18,6 +18,13 @@
 # include<ctype.h>
 # include<unistd.h>
 # include<limits.h>
+typedef struct s_stack
+{
+	int				num;
+	long			index;
+	struct s_stack	*next;
+	struct s_stack	*previous;
+}			t_stack;
 
 int		arg_check(int argc, const char *argv[]);
 char	**ft_split(char const *s, char c);
