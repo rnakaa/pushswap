@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/03 00:57:24 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/13 20:19:09 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
+#ifndef PUSH_SWAP_H
 
-# define TEST_H
+# define PUSH_SWAP_H
 # include<stdlib.h>
 # include<stdio.h>
 # include<ctype.h>
 # include<unistd.h>
 # include<limits.h>
+
 typedef struct s_stack
 {
 	int				num;
@@ -31,9 +32,9 @@ char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
-int	**arg_to_int(int argc, int argnum, char *argv[]);
-void     free_double_pointer(char **ingredient);
-int	ft_atoi(const char *s);
-int	ft_isdigit(int a);
-void	free_doublepointerint(int **a);
+int		**arg_to_int(int argc, int argnum, char *argv[]);
+void	free_dp_char(char **ingredient);
+void	free_dp_int(int **a);
+int		ft_atoi(const char *s);
+int		ft_isdigit(int a);
 #endif

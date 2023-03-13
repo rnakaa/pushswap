@@ -6,11 +6,11 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 00:53:25 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/03 10:15:52 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/13 19:25:18 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include"../push_swap.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

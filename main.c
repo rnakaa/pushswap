@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 00:55:16 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/06 17:55:41 by rnaka            ###   ########.fr       */
+/*   Created: 2023/02/26 20:33:55 by rnaka             #+#    #+#             */
+/*   Updated: 2023/02/27 13:16:06y rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include"push_swap.h"
 
-
-char	*ft_strdup(const char *s)
+int	main(int argc, char const *argv[])
 {
-	char	*dest;
-	char	*src;
-	char	*save;
-
-	src = (char *)s;
-	dest = malloc(ft_strlen(src)+1);
-	if (dest == NULL)
-		return (NULL);
-	save = dest;
-	while (*src)
-		*save++ = *src++;
-	*save = 0;
-	return (dest);
+	if (argc < 2)
+	{
+		write(0, "error\n", 7);
+		return (1);
+	}
+	if (arg_check(argc, argv))
+		return (1);
+	return (0);
 }

@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   free_dp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 20:33:55 by rnaka             #+#    #+#             */
-/*   Updated: 2023/02/27 13:16:06y rnaka            ###   ########.fr       */
+/*   Created: 2023/03/13 20:05:06 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/13 20:06:44 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include"push_swap.h"
 
-
-int	main(int argc, char const *argv[])
+void	free_dp_int(int **ingredient)
 {
-	if (argc < 2)
+	int	i;
+
+	i = 0;
+	while (ingredient[i])
 	{
-		write(0, "error\n", 7);
-		return (1);
+		free(ingredient[i]);
+		i++;
 	}
-	if (arg_check(argc, argv))
-		return (1);
-	return (0);
+	free(ingredient[i]);
+	free(ingredient);
+}
+
+void	free_dp_char(char **ingredient)
+{
+	int	i;
+
+	i = 0;
+	while (ingredient[i])
+	{
+		free(ingredient[i]);
+		i++;
+	}
+	free(ingredient[i]);
+	free(ingredient);
 }

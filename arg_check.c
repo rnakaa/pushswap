@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include"push_swap.h"
 
 static int	arg_chek_char(char *argv[])
 {
@@ -38,33 +38,17 @@ static int	arg_chek_char(char *argv[])
 	return (0);
 }
 
-//split->ft_split
 static char	**arg_split(const char *argv[], int *argnum)
 {
 	char	**ingredient;
-	int	i;
+	int		i;
 
 	i = 0;
 	ingredient = ft_split(argv[1], ' ');
-	while(ingredient[i])
+	while (ingredient[i])
 		i++;
-	printf("%d",i);
 	*argnum = i;
 	return (ingredient);
-}
-
-void	free_double_pointer(char **ingredient)
-{
-	int	i;
-
-	i = 0;
-	while (ingredient[i])
-	{
-		free(ingredient[i]);
-		i++;
-	}
-	free(ingredient[i]);
-	free(ingredient);
 }
 
 int	arg_check(int argc, const char *argv[])
@@ -80,14 +64,14 @@ int	arg_check(int argc, const char *argv[])
 	if (arg_chek_char(ingredient))
 	{
 		if (argc == 2)
-			free_double_pointer(ingredient);
+			free_dp_char(ingredient);
 		write(0, "error\n", 7);
 		return (1);
 	}
 	//***********************************************
-	free_doublepointerint(arg_to_int(argc, argnum, ingredient));
+	free_dp_int(arg_to_int(argc, argnum, ingredient));
 	//***********************************************
-	if(argc == 2)
-		free_double_pointer(ingredient);
+	if (argc == 2)
+		free_dp_char(ingredient);
 	return (0);
 }

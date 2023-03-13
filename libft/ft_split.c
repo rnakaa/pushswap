@@ -6,11 +6,11 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 00:40:37 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/03 00:59:25 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/13 19:25:34 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include"../push_swap.h"
 
 static	size_t	ft_find_chr(char *str, char c)
 {
@@ -35,7 +35,6 @@ static	size_t	ft_find_chr(char *str, char c)
 	return (count);
 }
 
-//!!using substr!!
 size_t	ft_build(char **re, char *str, char c)
 {
 	size_t	i;
