@@ -51,10 +51,11 @@ static char	**arg_split(const char *argv[], int *argnum)
 	return (ingredient);
 }
 
-int	arg_check(int argc, const char *argv[])
+int	**arg_check(int argc, const char *argv[])
 {
 	char	**ingredient;
 	int		argnum;
+	int		**num;
 
 	argnum = argc - 1;
 	if (argc >= 3)
@@ -66,12 +67,10 @@ int	arg_check(int argc, const char *argv[])
 		if (argc == 2)
 			free_dp_char(ingredient);
 		write(0, "error\n", 7);
-		return (1);
+		exit(1);
 	}
-	//***********************************************
-	free_dp_int(arg_to_int(argc, argnum, ingredient));
-	//***********************************************
+	num = arg_to_int(argc, argnum, ingredient);
 	if (argc == 2)
 		free_dp_char(ingredient);
-	return (0);
+	return (num);
 }

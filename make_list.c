@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   make_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 20:33:55 by rnaka             #+#    #+#             */
-/*   Updated: 2023/02/27 13:16:06y rnaka            ###   ########.fr       */
+/*   Created: 2023/03/14 12:46:11 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/14 13:07:55 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int	main(int argc, char const *argv[])
+void	make_list(t_stack **a, int **num)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		**num;
+	int		i;
+	t_stack	*stack;
 
-	a = NULL;
-	b = NULL;
-	num = NULL;
-	if (argc < 2)
+	i = 0;
+	while (num[i])
 	{
-		write(0, "error\n", 7);
-		return (1);
+		stack = (t_stack *)malloc(sizeof(t_stack));
+		if (!stack)
+			exit(1);
+		stack_reset(stack, num[i][0]);
+		add_front(a, stack);
+		i++;
 	}
-	num = arg_check(argc, argv);
-	make_list(&a, num);
-	//
-	b++;
-	//
-	free_list(a);
-	free_dp_int(num);
-	return (0);
 }

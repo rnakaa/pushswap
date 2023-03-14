@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/13 20:19:09 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/14 14:36:31 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_stack
 	int				num;
 	long			index;
 	struct s_stack	*next;
-	struct s_stack	*previous;
+	struct s_stack	*prev;
 }			t_stack;
 
-int		arg_check(int argc, const char *argv[]);
+int		**arg_check(int argc, const char *argv[]);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
@@ -37,4 +37,10 @@ void	free_dp_char(char **ingredient);
 void	free_dp_int(int **a);
 int		ft_atoi(const char *s);
 int		ft_isdigit(int a);
+void	make_list(t_stack **a, int **num);
+void	stack_reset(t_stack *stack, int num);
+void	add_front(t_stack **a, t_stack *stack);
+void	free_list(t_stack *a);
+t_stack	*list_last(t_stack *a);
+void	list_addback(t_stack **a, t_stack *stack);
 #endif

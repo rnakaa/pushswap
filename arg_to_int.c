@@ -36,6 +36,7 @@ static void	num_dup_check(int **intdp, int argnum)
 			if (intdp[i][0] == intdp[j][0])
 			{
 				free_dp_int(intdp);
+				write(0, "error\n", 6);
 				exit(1);
 			}
 			j++;

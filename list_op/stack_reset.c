@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   stack_reset.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 20:33:55 by rnaka             #+#    #+#             */
-/*   Updated: 2023/02/27 13:16:06y rnaka            ###   ########.fr       */
+/*   Created: 2023/03/14 12:37:42 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/14 12:47:24 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
 
-int	main(int argc, char const *argv[])
+void	stack_reset(t_stack *stack, int num)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		**num;
-
-	a = NULL;
-	b = NULL;
-	num = NULL;
-	if (argc < 2)
-	{
-		write(0, "error\n", 7);
-		return (1);
-	}
-	num = arg_check(argc, argv);
-	make_list(&a, num);
-	//
-	b++;
-	//
-	free_list(a);
-	free_dp_int(num);
-	return (0);
+	stack->num = num;
+	stack->index = -1;
+	stack->next = NULL;
+	stack->prev = NULL;
 }

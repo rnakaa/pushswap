@@ -16,6 +16,7 @@ int	main(int argc, char const *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_stack	test;
 	int		**num;
 
 	a = NULL;
@@ -28,9 +29,24 @@ int	main(int argc, char const *argv[])
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
-	//
-	b++;
-	//
+	stack_reset(&test, 1010);
+	list_addback(&b, &test);
+	while (a)
+	{
+		printf("%d\n", a->num);
+		a = a->next;
+	}
+	while (b)
+	{
+		printf("%d\n", b->num);
+		b = b->next;
+	}
+	// a = list_last(b);
+	// while (a)
+	// {
+	// 	printf("%d\n", a->num);
+	// 	a = a->prev;
+	// }
 	free_list(a);
 	free_dp_int(num);
 	return (0);
