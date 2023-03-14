@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_list.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 12:46:11 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/14 17:08:24 by rnaka            ###   ########.fr       */
+/*   Created: 2023/03/14 14:49:37 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/14 18:00:19 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
 
-void	make_list(t_stack **a, int **num)
+void	push(t_stack **from, t_stack **to)
 {
-	int		i;
-	t_stack	*stack;
+	t_stack	*stock;
 
-	i = 0;
-	while (num[i])
+	if (!from || !to)
+		return ;
+	if (!*from)
+		return ;
+	stock = (*from)->next;
+	list_addfront(to, *from);
+	if (!stock)
 	{
-		stack = (t_stack *)malloc(sizeof(t_stack));
-		if (!stack)
-			exit(1);
-		stack_reset(stack, num[i][0]);
-		list_addfront(a, stack);
-		i++;
+		printf("nana");
+		*from = NULL;
+		return ;
 	}
+	stock->prev = NULL;
+	*from = stock;
 }

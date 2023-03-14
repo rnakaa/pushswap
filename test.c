@@ -12,11 +12,50 @@
 
 #include"push_swap.h"
 
+
+void	print_all(t_stack **a, t_stack **b)
+{
+	t_stack	*stock;
+
+	stock = *a;
+	while (stock)
+	{
+		printf("a %d\n", stock->num);
+		stock = stock->next;
+	}
+	stock = *b;
+	printf("\nb\n");
+	while (stock)
+	{
+		printf("b %d\n", stock->num);
+		stock = stock->next;
+	}
+}
+
+void	print_back(t_stack **a, t_stack **b)
+{
+	t_stack	*stock;
+
+	stock = list_last(*a);
+	printf("back\n");
+	while (stock)
+	{
+		printf("pa %d\n", stock->num);
+		stock = stock->prev;
+	}
+	printf("\nb\n");
+	stock = list_last(*b);
+	while (stock)
+	{
+		printf("pb %d\n", stock->num);
+		stock = stock->prev;
+	}
+}
+
 int	main(int argc, char const *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	test;
 	int		**num;
 
 	a = NULL;
@@ -29,24 +68,17 @@ int	main(int argc, char const *argv[])
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
-	stack_reset(&test, 1010);
-	list_addback(&b, &test);
-	while (a)
-	{
-		printf("%d\n", a->num);
-		a = a->next;
-	}
-	while (b)
-	{
-		printf("%d\n", b->num);
-		b = b->next;
-	}
-	// a = list_last(b);
-	// while (a)
-	// {
-	// 	printf("%d\n", a->num);
-	// 	a = a->prev;
-	// }
+
+
+
+	printf("push前\n");
+	print_all(&a, &b);
+	push(&a, &b);
+	push(&a, &b);
+	push(&a, &b);
+	push(&a, &b);
+	printf("\n\npush後\n");
+	print_all(&a, &b);
 	free_list(a);
 	free_dp_int(num);
 	return (0);

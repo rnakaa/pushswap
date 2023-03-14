@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/14 14:36:31 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/14 17:07:27 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int		ft_atoi(const char *s);
 int		ft_isdigit(int a);
 void	make_list(t_stack **a, int **num);
 void	stack_reset(t_stack *stack, int num);
-void	add_front(t_stack **a, t_stack *stack);
+void	list_addfront(t_stack **a, t_stack *stack);
 void	free_list(t_stack *a);
 t_stack	*list_last(t_stack *a);
 void	list_addback(t_stack **a, t_stack *stack);
+void	swap(t_stack **a);
+void	push(t_stack **from, t_stack **to);
 #endif

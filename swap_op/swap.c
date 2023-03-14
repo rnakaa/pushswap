@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_list.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 12:46:11 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/14 17:08:24 by rnaka            ###   ########.fr       */
+/*   Created: 2023/03/14 14:49:30 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/14 15:50:46 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
 
-void	make_list(t_stack **a, int **num)
+void	swap(t_stack **a)
 {
-	int		i;
-	t_stack	*stack;
+	t_stack	*b;
 
-	i = 0;
-	while (num[i])
-	{
-		stack = (t_stack *)malloc(sizeof(t_stack));
-		if (!stack)
-			exit(1);
-		stack_reset(stack, num[i][0]);
-		list_addfront(a, stack);
-		i++;
-	}
+	if (!a)
+		return ;
+	if (!*a)
+		return ;
+	if (!(*a)->next)
+		return ;
+	b = *a;
+	*a = (*a)->next;
+	b->next = (*a)->next;
+	b->prev = *a;
+	(*a)->next = b;
+	(*a)->prev = NULL;
+	if (b->next)
+		(b->next)->prev = b;
 }
