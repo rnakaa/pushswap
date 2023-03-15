@@ -6,7 +6,7 @@
 #    By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 09:46:50 by rnaka             #+#    #+#              #
-#    Updated: 2023/03/14 17:05:26 by rnaka            ###   ########.fr        #
+#    Updated: 2023/03/15 10:36:40 by rnaka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,9 @@ SRCS    = 	libft/ft_strdup.c\
 			free_list.c\
 			list_op/list_last.c\
 			swap_op/swap.c\
-			swap_op/push.c
+			swap_op/push.c\
+			swap_op/rotate.c\
+			list_op/stack_prevnext.c
 OBJS    = $(SRCS:.c=.o)
 
 .c.o:

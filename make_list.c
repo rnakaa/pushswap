@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:46:11 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/14 17:08:24 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 10:20:33 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	make_list(t_stack **a, int **num)
 		if (!stack)
 			exit(1);
 		stack_reset(stack, num[i][0]);
-		list_addfront(a, stack);
+		addfront(a, stack);
 		i++;
 	}
 }

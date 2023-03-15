@@ -6,14 +6,16 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:37:32 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/14 14:37:28 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 09:37:18 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	list_addback(t_stack **a, t_stack *stack)
+void	addback(t_stack **a, t_stack *stack)
 {
+	t_stack	*last;
+
 	if (!a)
 		return ;
 	if (!*a)
@@ -21,5 +23,7 @@ void	list_addback(t_stack **a, t_stack *stack)
 		*a = stack;
 		return ;
 	}
-	list_last(*a)->next = stack;
+	last = list_last(*a);
+	last->next = stack;
+	prevnext(stack, last, NULL);
 }

@@ -12,45 +12,9 @@
 
 #include"push_swap.h"
 
+void	print_all(t_stack **a, t_stack **b);
+void	print_back(t_stack **a, t_stack **b);
 
-void	print_all(t_stack **a, t_stack **b)
-{
-	t_stack	*stock;
-
-	stock = *a;
-	while (stock)
-	{
-		printf("a %d\n", stock->num);
-		stock = stock->next;
-	}
-	stock = *b;
-	printf("\nb\n");
-	while (stock)
-	{
-		printf("b %d\n", stock->num);
-		stock = stock->next;
-	}
-}
-
-void	print_back(t_stack **a, t_stack **b)
-{
-	t_stack	*stock;
-
-	stock = list_last(*a);
-	printf("back\n");
-	while (stock)
-	{
-		printf("pa %d\n", stock->num);
-		stock = stock->prev;
-	}
-	printf("\nb\n");
-	stock = list_last(*b);
-	while (stock)
-	{
-		printf("pb %d\n", stock->num);
-		stock = stock->prev;
-	}
-}
 
 int	main(int argc, char const *argv[])
 {
@@ -71,15 +35,72 @@ int	main(int argc, char const *argv[])
 
 
 
-	printf("push前\n");
+	printf("rotate前\n");
 	print_all(&a, &b);
+	rotate(&a);
+	swap(&a);
 	push(&a, &b);
-	push(&a, &b);
-	push(&a, &b);
-	push(&a, &b);
-	printf("\n\npush後\n");
+	printf("\n\nrotate後\n");
 	print_all(&a, &b);
+	printf("\n\nback\n");
+	print_back(&a, &b);
 	free_list(a);
 	free_dp_int(num);
 	return (0);
+}
+
+void	print_all(t_stack **a, t_stack **b)
+{
+	t_stack	*stocka;
+	t_stack	*stockb;
+
+	stocka = *a;
+	stockb = *b;
+	printf("a  :  b\n");
+	while (stocka || stockb)
+	{
+		if (stocka)
+		{
+			printf("%d", stocka->num);
+			stocka = stocka->next;
+		}
+		else
+			printf(" ");
+		printf("  :  ");
+		if (stockb)
+		{
+			printf("%d\n", stockb->num);
+			stockb = stockb->next;
+		}
+		else
+			printf(" \n");
+	}
+}
+
+void	print_back(t_stack **a, t_stack **b)
+{
+	t_stack	*stocka;
+	t_stack	*stockb;
+
+	stocka = list_last(*a);
+	stockb = list_last(*b);
+	printf("a  :  b\n");
+	while (stocka || stockb)
+	{
+		if (stocka)
+		{
+			printf("%d", stocka->num);
+			stocka = stocka->prev;
+		}
+		else
+			printf(" ");
+		printf("  :  ");
+		if (stockb)
+		{
+			printf("%d\n", stockb->num);
+			stockb = stockb->prev;
+		}
+		else
+			printf(" \n");
+	}	
 }

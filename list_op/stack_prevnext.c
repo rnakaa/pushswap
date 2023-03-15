@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_addfront.c                                    :+:      :+:    :+:   */
+/*   stack_prevnext.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 12:37:32 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 09:58:11 by rnaka            ###   ########.fr       */
+/*   Created: 2023/03/15 09:25:05 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/15 09:28:28 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	addfront(t_stack **a, t_stack *stack)
+void	prevnext(t_stack *stack, t_stack *prev, t_stack *next)
 {
-	if (!*a)
-	{
-		(*a) = stack;
-		stack->next = NULL;
-		stack->prev = NULL;
-		return ;
-	}
-	(*a)->prev = stack;
-	prevnext(stack, NULL, *a);
-	(*a) = stack;
+	stack->next = next;
+	stack->prev = prev;
 }
