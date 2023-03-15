@@ -6,7 +6,7 @@
 #    By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 09:46:50 by rnaka             #+#    #+#              #
-#    Updated: 2023/03/15 12:38:05 by rnaka            ###   ########.fr        #
+#    Updated: 2023/03/15 12:50:34 by rnaka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ SRCS    = 	libft/ft_atoi.c\
 			arg_op/arg_check.c\
 			arg_op/make_list.c\
 			arg_op/arg_to_int.c\
+			arg_op/coordinate_compression.c\
 			free_op/free_dp.c\
 			free_op/free_list.c\
+			list_op/list_len.c\
 			list_op/list_last.c\
 			list_op/stack_reset.c\
 			list_op/list_addback.c\

@@ -14,6 +14,7 @@
 
 void	print_all(t_stack **a, t_stack **b);
 void	print_back(t_stack **a, t_stack **b);
+void	check_index(t_stack **a);
 
 
 int	main(int argc, char const *argv[])
@@ -32,19 +33,39 @@ int	main(int argc, char const *argv[])
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
+	coordinate_compression(a);
 
 
 
-	printf("rotate前\n");
-	print_all(&a, &b);
-	reverse(&a);
-	printf("\n\nrotate後\n");
-	print_all(&a, &b);
-	printf("\n\nback\n");
-	print_back(&a, &b);
+	// printf("rotate前\n");
+	// print_all(&a, &b);
+	// reverse(&a);
+	// printf("\n\nrotate後\n");
+	// print_all(&a, &b);
+	// printf("\n\nback\n");
+	// print_back(&a, &b);
+	// check_index(&a);
+	// check_index(&b);
 	free_list(a);
 	free_dp_int(num);
 	return (0);
+}
+
+void	check_index(t_stack **a)
+{
+	t_stack	*stocka;
+
+	stocka = *a;
+	while (stocka)
+	{
+		if (stocka->index != stocka->num)
+		{
+			printf("NG %d\n", stocka->num);
+			return ;
+		}
+		stocka = stocka->next;
+	}
+	printf("OK\n");
 }
 
 void	print_all(t_stack **a, t_stack **b)
@@ -59,7 +80,7 @@ void	print_all(t_stack **a, t_stack **b)
 	{
 		if (stocka)
 		{
-			printf("%d", stocka->num);
+			printf("%d", stocka->index);
 			stocka = stocka->next;
 		}
 		else
@@ -67,7 +88,7 @@ void	print_all(t_stack **a, t_stack **b)
 		printf("  :  ");
 		if (stockb)
 		{
-			printf("%d\n", stockb->num);
+			printf("%d\n", stockb->index);
 			stockb = stockb->next;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 12:04:41 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 13:07:58 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_stack
 {
 	int				num;
-	long			index;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }			t_stack;
@@ -59,4 +59,6 @@ void	rr(t_stack **a, t_stack **b);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
+int		listlen(t_stack *start);
+void	coordinate_compression(t_stack *a);
 #endif

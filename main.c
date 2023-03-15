@@ -28,9 +28,7 @@ int	main(int argc, char const *argv[])
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
-	//
-	b++;
-	//
+	coordinate_compression(&a);
 	free_list(a);
 	free_dp_int(num);
 	return (0);
