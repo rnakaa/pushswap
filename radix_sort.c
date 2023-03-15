@@ -6,20 +6,20 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:26:33 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 18:02:37 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 00:06:57 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-static int	is_sorted(t_stack *a, int max)
+static int	is_sorted(t_stack *a)
 {
 	int	previndex;
 
-	previndex = max;
+	previndex = 1;
 	while (a)
 	{
-		if (a->index > previndex)
+		if (a->index < previndex)
 		{
 			return (1);
 		}
@@ -29,10 +29,29 @@ static int	is_sorted(t_stack *a, int max)
 	return (0);
 }
 
-void	radix(int max, t_stack **a, t_stack **b)
+void	radix(t_stack **a, t_stack **b)
 {
-	if (!is_sorted(*a, max))
-		return ;
-	while (*b)
-		max++;
+	t_stack	*last;
+	int		min;
+
+	min = 1;
+	while (is_sorted(*a))
+	{
+		last = list_last(*a);
+		while (*a != last)
+		{
+			if (!((*a)->index & min))
+				pb(a, b);
+			else
+				ra(a);
+		}
+		if (!((*a)->index & min))
+			pb(a, b);
+		else
+			ra(a);
+		while (*b)
+			pa(a, b);
+		min = min << 1;
+	}
+	return ;
 }

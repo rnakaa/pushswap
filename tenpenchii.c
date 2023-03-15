@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   tenpenchii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 14:49:37 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 21:52:29 by rnaka            ###   ########.fr       */
+/*   Created: 2023/03/15 22:28:47 by rnaka             #+#    #+#             */
+/*   Updated: 2023/03/15 23:08:28 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../push_swap.h"
+#include"push_swap.h"
 
-void	push(t_stack **from, t_stack **to)
+void	tenpenchii(t_stack	**a)
 {
 	t_stack	*stock;
+	t_stack	*save;
 
-	if (!from || !to)
-		return ;
-	if (!*from)
-		return ;
-	stock = (*from)->next;
-	addfront(to, *from);
+	stock = *a;
 	if (!stock)
-	{
-		*from = NULL;
 		return ;
+	*a = list_last(*a);
+	while (stock)
+	{
+		save = stock->prev;
+		stock->prev = stock->next;
+		stock->next = save;
+		stock = stock->prev;
 	}
-	stock->prev = NULL;
-	*from = stock;
-}
-
-void	pa(t_stack **a, t_stack **b)
-{
-	push(b, a);
-	write(0, "pa\n", 3);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	write(0, "pb\n", 3);
 }
