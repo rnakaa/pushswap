@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 10:20:07 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 11:01:32 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ void	swap(t_stack **a);
 void	push(t_stack **from, t_stack **to);
 void	prevnext(t_stack *stack, t_stack *prev, t_stack *next);
 void	rotate(t_stack **a);
+void	reverse(t_stack **a);
 #endif

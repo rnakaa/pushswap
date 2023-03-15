@@ -37,9 +37,7 @@ int	main(int argc, char const *argv[])
 
 	printf("rotate前\n");
 	print_all(&a, &b);
-	rotate(&a);
-	swap(&a);
-	push(&a, &b);
+	reverse(&a);
 	printf("\n\nrotate後\n");
 	print_all(&a, &b);
 	printf("\n\nback\n");
