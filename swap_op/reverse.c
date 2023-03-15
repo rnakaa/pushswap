@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:34 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 11:00:36 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 12:05:54 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,23 @@ void	reverse(t_stack **a)
 	new_end->next = NULL;
 	addfront(a, end);
 	*a = end;
+}
+
+void	rra(t_stack **a)
+{
+	reverse(a);
+	write(0, "rra\n", 4);
+}
+
+void	rrb(t_stack **b)
+{
+	reverse(b);
+	write(0, "rrb\n", 4);
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	reverse(a);
+	reverse(b);
+	write(0, "rrr\n", 4);
 }

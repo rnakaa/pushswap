@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:30 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 10:47:08 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 12:05:24 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,23 @@ void	swap(t_stack **a)
 	(*a)->prev = NULL;
 	if (b->next)
 		(b->next)->prev = b;
+}
+
+void	sa(t_stack **a)
+{
+	swap(a);
+	write(0, "sa\n", 3);
+}
+
+void	sb(t_stack **b)
+{
+	swap(b);
+	write(0, "sb\n", 3);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	write(0, "ss\n", 3);
 }
