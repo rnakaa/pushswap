@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 13:07:58 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 17:37:00 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 int		listlen(t_stack *start);
-void	coordinate_compression(t_stack *a);
+int		coordinate_compression(t_stack *a);
+void	radix(int max, t_stack **a, t_stack **b);
 #endif

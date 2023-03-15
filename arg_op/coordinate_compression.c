@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:42:12 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 16:35:33 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/15 17:38:09 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ static t_stack	*indexuntached(t_stack *a)
 	return (a);
 }
 
-void	coordinate_compression(t_stack *a)
+int	coordinate_compression(t_stack *a)
 {
 	int		max;
 	int		save;
+	int		re;
 	t_stack	*stock;
 	t_stack	*start;
 
 	max = listlen(a);
+	re = max;
 	while (max)
 	{
 		start = indexuntached(a);
@@ -45,4 +47,5 @@ void	coordinate_compression(t_stack *a)
 		}
 		stock->index = max--;
 	}
+	return (re);
 }

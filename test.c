@@ -22,10 +22,12 @@ int	main(int argc, char const *argv[])
 	t_stack	*a;
 	t_stack	*b;
 	int		**num;
+	int 	max;
 
 	a = NULL;
 	b = NULL;
 	num = NULL;
+	max = 0;
 	if (argc < 2)
 	{
 		write(0, "error\n", 7);
@@ -33,7 +35,7 @@ int	main(int argc, char const *argv[])
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
-	coordinate_compression(a);
+	max = coordinate_compression(a);
 
 
 
@@ -46,6 +48,7 @@ int	main(int argc, char const *argv[])
 	// print_back(&a, &b);
 	// check_index(&a);
 	// check_index(&b);
+	radix(max, &a, &b);
 	free_list(a);
 	free_dp_int(num);
 	return (0);

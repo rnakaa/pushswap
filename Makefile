@@ -6,7 +6,7 @@
 #    By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 09:46:50 by rnaka             #+#    #+#              #
-#    Updated: 2023/03/15 12:50:34 by rnaka            ###   ########.fr        #
+#    Updated: 2023/03/15 17:37:16 by rnaka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS    = 	libft/ft_atoi.c\
 			swap_op/push.c\
 			swap_op/rotate.c\
 			swap_op/reverse.c\
+			radix_sort.c\
 			test.c
 OBJS    = $(SRCS:.c=.o)
 
