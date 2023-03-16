@@ -23,12 +23,14 @@ int	main(int argc, char const *argv[])
 	num = NULL;
 	if (argc < 2)
 	{
-		write(0, "error\n", 7);
+		write(1, "error\n", 7);
 		return (1);
 	}
 	num = arg_check(argc, argv);
 	make_list(&a, num);
-	coordinate_compression(&a);
+	tenpenchii(&a);
+	coordinate_compression(a);
+	radix(&a, &b);
 	free_list(a);
 	free_dp_int(num);
 	return (0);

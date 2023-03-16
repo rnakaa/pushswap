@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:32 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 12:07:14 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 13:49:09 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	rotate(t_stack **a)
 void	ra(t_stack **a)
 {
 	rotate(a);
-	write(0, "ra\n", 3);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
 	rotate(b);
-	write(0, "rb\n", 3);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	write(0, "rr\n", 3);
+	write(1, "rr\n", 3);
 }

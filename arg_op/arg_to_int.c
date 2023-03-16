@@ -18,7 +18,7 @@ static int	argfree(int i, int *rep[], int argnum)
 		free(rep[i--]);
 	free(rep[argnum]);
 	free(rep);
-	write(0, "error\n", 6);
+	write(1, "error\n", 6);
 	exit(1);
 }
 
@@ -36,7 +36,7 @@ static void	num_dup_check(int **intdp, int argnum)
 			if (intdp[i][0] == intdp[j][0])
 			{
 				free_dp_int(intdp);
-				write(0, "error\n", 6);
+				write(1, "error\n", 6);
 				exit(1);
 			}
 			j++;

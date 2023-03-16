@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:21:20 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/13 20:36:17 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 13:48:23 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	check_over_long(int sign, unsigned long num, char c)
 	if (sign == 1 && (INT_MAX / 10 < num || (INT_MAX / 10 == num && INT_MAX
 				% 10 < c - '0')))
 	{
-		write(0, "error\n", 6);
+		write(1, "error\n", 6);
 		exit(1);
 	}
 	if (sign == -1 && (INT_MAX / 10 < num || (INT_MAX / 10 == num && INT_MAX
 				% 10 + 1 < c - '0')))
 	{
-		write(0, "error\n", 6);
+		write(1, "error\n", 6);
 		exit(1);
 	}
 	return (0);

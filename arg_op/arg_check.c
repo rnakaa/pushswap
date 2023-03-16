@@ -66,7 +66,7 @@ int	**arg_check(int argc, const char *argv[])
 	{
 		if (argc == 2)
 			free_dp_char(ingredient);
-		write(0, "error\n", 7);
+		write(1, "error\n", 7);
 		exit(1);
 	}
 	num = arg_to_int(argc, argnum, ingredient);

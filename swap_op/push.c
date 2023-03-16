@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:37 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 21:52:29 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 13:48:53 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	push(t_stack **from, t_stack **to)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(b, a);
-	write(0, "pa\n", 3);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	write(0, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
