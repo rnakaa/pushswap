@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:45:46 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 00:07:06 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 16:24:20 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	addfront(t_stack **a, t_stack *stack);
 void	free_list(t_stack *a);
 t_stack	*list_last(t_stack *a);
 void	addback(t_stack **a, t_stack *stack);
-void	swap(t_stack **a);
-void	push(t_stack **from, t_stack **to);
+int		swap(t_stack **a);
+int		push(t_stack **from, t_stack **to);
+int		rotate(t_stack **a);
+int		reverse(t_stack **a);
 void	prevnext(t_stack *stack, t_stack *prev, t_stack *next);
-void	rotate(t_stack **a);
-void	reverse(t_stack **a);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
@@ -60,7 +60,11 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 int		listlen(t_stack *start);
-int		coordinate_compression(t_stack *a);
+int		list_compression(t_stack *a);
+void	sort(t_stack **a, t_stack **b, int max);
 void	radix(t_stack **a, t_stack **b);
 void	tenpenchii(t_stack	**a);
+int		is_sorted(t_stack *a);
+void	littlesort(t_stack **a, t_stack**b, int max);
+void	list_recompression(t_stack *a);
 #endif

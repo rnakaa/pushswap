@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 20:33:55 by rnaka             #+#    #+#             */
-/*   Updated: 2023/02/27 13:16:06y rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 15:15:42 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	print_all(t_stack **a, t_stack **b);
 // void		print_back(t_stack **a, t_stack **b);
 // void		check_index(t_stack **a);
-
 
 int	main(int argc, char const *argv[])
 {
@@ -45,7 +44,6 @@ int	main(int argc, char const *argv[])
 // void	check_index(t_stack **a)
 // {
 // 	t_stack	*stocka;
-
 // 	stocka = *a;
 // 	while (stocka)
 // 	{
@@ -58,7 +56,6 @@ int	main(int argc, char const *argv[])
 // 	}
 // 	printf("OK\n");
 // }
-
 static void	print_all(t_stack **a, t_stack **b)
 {
 	t_stack	*stocka;

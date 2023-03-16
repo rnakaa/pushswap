@@ -6,22 +6,22 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:30 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 13:49:17 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 16:25:51 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	swap(t_stack **a)
+int	swap(t_stack **a)
 {
 	t_stack	*b;
 
 	if (!a)
-		return ;
+		return (1);
 	if (!*a)
-		return ;
+		return (1);
 	if (!(*a)->next)
-		return ;
+		return (1);
 	b = *a;
 	*a = (*a)->next;
 	b->next = (*a)->next;
@@ -30,23 +30,32 @@ void	swap(t_stack **a)
 	(*a)->prev = NULL;
 	if (b->next)
 		(b->next)->prev = b;
+	return (0);
 }
 
 void	sa(t_stack **a)
 {
-	swap(a);
-	write(1, "sa\n", 3);
+	if (!swap(a))
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **b)
 {
-	swap(b);
-	write(1, "sb\n", 3);
+	if (!swap(b))
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
-	swap(a);
-	swap(b);
-	write(1, "ss\n", 3);
+	int	ai;
+	int	bi;
+
+	ai = swap(a);
+	bi = swap(b);
+	if (!ai && !bi)
+		write(1, "ss\n", 3);
+	else if (!ai)
+		write(1, "sa\n", 3);
+	else
+		write(1, "sb\n", 3);
 }

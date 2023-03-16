@@ -6,39 +6,40 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:49:37 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 13:48:53 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 16:28:35 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"../push_swap.h"
 
-void	push(t_stack **from, t_stack **to)
+int	push(t_stack **from, t_stack **to)
 {
 	t_stack	*stock;
 
 	if (!from || !to)
-		return ;
+		return (1);
 	if (!*from)
-		return ;
+		return (1);
 	stock = (*from)->next;
 	addfront(to, *from);
 	if (!stock)
 	{
 		*from = NULL;
-		return ;
+		return (0);
 	}
 	stock->prev = NULL;
 	*from = stock;
+	return (0);
 }
 
 void	pa(t_stack **a, t_stack **b)
 {
-	push(b, a);
-	write(1, "pa\n", 3);
+	if (!push(b, a))
+		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	push(a, b);
-	write(1, "pb\n", 3);
+	if (!push(b, a))
+		write(1, "pa\n", 3);
 }

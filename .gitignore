@@ -1,6 +1,4 @@
 push_swap
-a
-b
 *.o
 .DS_Store
 .gitignore

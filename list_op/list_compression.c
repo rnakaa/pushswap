@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coordinate_compression.c                           :+:      :+:    :+:   */
+/*   list_compression.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:42:12 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 17:38:09 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 15:53:36 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_stack	*indexuntached(t_stack *a)
 	return (a);
 }
 
-int	coordinate_compression(t_stack *a)
+int	list_compression(t_stack *a)
 {
 	int		max;
 	int		save;
@@ -48,4 +48,14 @@ int	coordinate_compression(t_stack *a)
 		stock->index = max--;
 	}
 	return (re);
+}
+
+void	list_recompression(t_stack *a)
+{
+	while (a)
+	{
+		a->index = -1;
+		a = a->next;
+	}
+	list_compression(a);
 }

@@ -71,16 +71,3 @@ int	**arg_to_int(int argc, int argnum, char *argv[])
 	num_dup_check(rep, argnum);
 	return (rep);
 }
-
-//*****************************************************
-	//int k = 0;
-	//while(rep[k])
-	//{
-	//	int l = 0;
-	//	while(rep[k][l])
-	//		printf("%d\n",rep[k][l++]);
-	//	printf("dasfdfa\n");
-	//	k++;
-	//}
-	//free_double_pointerint(rep);
-	//*****************************************************

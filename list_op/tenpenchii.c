@@ -6,11 +6,11 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 22:28:47 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/15 23:08:28 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 15:10:17 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"push_swap.h"
+#include"../push_swap.h"
 
 void	tenpenchii(t_stack	**a)
 {
