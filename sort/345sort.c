@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:08:42 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 16:40:54 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 17:24:01 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	threesort(t_stack **a, t_stack **b, int fi, int se)
 			sa(a);
 		else if (fi == 2 && se == 3)
 			rra(a);
-		else
+		else if (fi == 3 && se == 1)
 			ra(a);
 	}
 }

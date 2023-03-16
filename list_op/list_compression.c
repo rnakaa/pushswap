@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 12:42:12 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 15:53:36 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/16 17:22:58 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ int	list_compression(t_stack *a)
 
 void	list_recompression(t_stack *a)
 {
+	t_stack	*start;
+
+	start = a;
 	while (a)
 	{
 		a->index = -1;
 		a = a->next;
 	}
-	list_compression(a);
+	list_compression(start);
 }
