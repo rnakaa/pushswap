@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_check.c                                        :+:      :+:    :+:   */
+/*   arg_to_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:32:30 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/03 01:04:4 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/03/24 06:27:53 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ static void	num_dup_check(int **intdp, int argnum)
 	int	i;
 	int	j;
 
-	i = argnum - 1;
+	i = 0;
 	while (intdp[i])
 	{
-		j = 0;
-		while (j < i)
+		j = argnum - 1;
+		while (j > i)
 		{
 			if (intdp[i][0] == intdp[j][0])
 			{
@@ -39,9 +39,9 @@ static void	num_dup_check(int **intdp, int argnum)
 				write(1, "error\n", 6);
 				exit(1);
 			}
-			j++;
+			j--;
 		}
-		i--;
+		i++;
 	}
 }
 
@@ -61,11 +61,10 @@ int	**arg_to_int(int argc, int argnum, char *argv[])
 	rep[argnum] = NULL;
 	while (argv[i])
 	{
-		rep[i] = malloc(sizeof(int) * 2);
+		rep[i] = malloc(sizeof(int) * 1);
 		if (!rep[i])
 			argfree(i, rep, argnum);
 		rep[i][0] = ft_atoi(argv[i]);
-		rep[i][1] = '\0';
 		i++;
 	}
 	num_dup_check(rep, argnum);

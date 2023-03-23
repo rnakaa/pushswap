@@ -6,11 +6,12 @@
 #    By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 09:46:50 by rnaka             #+#    #+#              #
-#    Updated: 2023/03/16 17:14:16 by rnaka            ###   ########.fr        #
+#    Updated: 2023/03/23 20:21:22 by rnaka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
+DEBUG = -g -fsanitize=address  -fsanitize=undefined
 CFLAGS = -Wall -Wextra -Werror
 SRCS    = 	sort/sort.c\
 			sort/345sort.c\
@@ -42,12 +43,22 @@ SRCS    = 	sort/sort.c\
 			# test.c
 OBJS    = $(SRCS:.c=.o)
 
+ifeq ($(shell uname), Linux)
+DEBUG += -fsanitize=leak
+endif
 .c.o:
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 all: $(OBJS)
 	gcc $(CFLAGS) -o push_swap $(OBJS)
 
-clean:	
-		rm -f $(OBJS)
 re:		fclean all
+clean:
+	@$(RM) -r $(OBJS)
+ 
+fclean:		clean
+	@$(RM) $(NAME)
+
+debug:	CFLAGS += $(DEBUG)
+debug:	re
+.PHONY:		all clean fclean re
