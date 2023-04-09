@@ -6,7 +6,7 @@
 /*   By: rnaka <rnaka@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:08:42 by rnaka             #+#    #+#             */
-/*   Updated: 2023/03/16 17:24:01 by rnaka            ###   ########.fr       */
+/*   Updated: 2023/04/09 09:50:34 by rnaka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,45 @@ static void	separate4(t_stack **a, t_stack **b)
 	{
 		if (look->index == 1)
 		{
-			if (count == 2 || count == 3)
+			if (count == 2)
 				sa(a);
 			if (count == 3)
-				sa(a);
-			else if (count == 4)
+				rra(a);
+			if (count == 3 || count == 4)
 				rra(a);
 			pb(a, b);
-			count = 0;
+			break ;
 		}
 		count++;
 		look = look->next;
 	}
 	list_recompression(*a);
+	list_recompression(*b);
+}
+
+static void	minpb(t_stack **a, t_stack **b, int count)
+{
+	if (count != 5)
+	{
+		if (count == 2)
+			sa(a);
+		if (count == 3 || count == 4)
+			rra(a);
+		if (count == 3 || count == 4)
+			rra(a);
+		if (count == 3)
+			rra(a);
+		pb(a, b);
+	}
+	else if (count == 5)
+	{
+		rra(a);
+		pb(a, b);
+		list_last(*a);
+	}
+	list_recompression(*a);
+	separate4(a, b);
+	return ;
 }
 
 static void	separate5(t_stack **a, t_stack **b)
@@ -71,26 +97,21 @@ static void	separate5(t_stack **a, t_stack **b)
 
 	count = 1;
 	look = *a;
-	while (look)
+	if (list_last(*a)->index == 1 || list_last(*a)->index == 2)
 	{
-		if (look->index == 1 || look->index == 2)
-		{
-			if (count == 2 || count == 3)
-				sa(a);
-			if (count == 3)
-				sa(a);
-			if (count == 4 || count == 5)
-				rra(a);
-			if (count == 5)
-				rra(a);
-			pb(a, b);
-			count = 1;
-			look = *a;
-		}
-		count++;
-		look = look->next;
+		minpb(a, b, 5);
+		return ;
 	}
-	list_recompression(*a);
+	while (1)
+	{
+		if (look->index == 2 || look->index == 1)
+		{
+			minpb(a, b, count);
+			return ;
+		}
+		look = look->next;
+		count++;
+	}
 }
 
 void	littlesort(t_stack **a, t_stack **b, int max)
@@ -101,5 +122,6 @@ void	littlesort(t_stack **a, t_stack **b, int max)
 		separate4(a, b);
 	threesort(a, b, (*a)->index, ((*a)->next)->index);
 	pa(a, b);
-	pa(a, b);
+	if (max == 5)
+		pa(a, b);
 }
